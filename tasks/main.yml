@@ -12,11 +12,11 @@
 
 #- debug: msg="Found uwsgi version {{ cmdresult.stdout }}. Needed {{ uwsgi_version }}"
 
-- include: packages.yml
-  when: "cmdresult.stdout.find(uwsgi_version) == -1"
+- include: install-uwsgi-source.yml
+  when: uwsgi_install_method == "source" and cmdresult.stdout.find(uwsgi_version) == -1
 
-- include: install-uwsgi.yml
-  when: "cmdresult.stdout.find(uwsgi_version) == -1"
+- include: install-uwsgi-pip.yml
+  when: uwsgi_install_method == "pip" and cmdresult.stdout.find(uwsgi_version) == -1
 
 - include: emperor-mode.yml
   when: uwsgi_mode == "emperor" or uwsgi_mode == "tyrant"
