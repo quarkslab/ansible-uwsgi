@@ -12,6 +12,9 @@
 
 #- debug: msg="Found uwsgi version {{ cmdresult.stdout }}. Needed {{ uwsgi_version }}"
 
+- include: install-uwsgi-repo.yml
+  when: uwsgi_install_method == "repo"
+
 - include: install-uwsgi-source.yml
   when: uwsgi_install_method == "source" and cmdresult.stdout.find(uwsgi_version) == -1
 

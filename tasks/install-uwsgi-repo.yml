@@ -1,0 +1,14 @@
+---
+
+- name: Install uWSGI from Apt repository (Debian OS-Like)
+  apt:
+    pkg: "uwsgi"
+    state: "present"
+  when: ansible_os_family == "Debian"
+
+- name: Install uWSGI plugins
+  apt:
+    pkg: "uwsgi-plugin-{{ item }}"
+    state: present
+  when: ansible_os_family == "Debian"
+  with_items: uwsgi_plugins

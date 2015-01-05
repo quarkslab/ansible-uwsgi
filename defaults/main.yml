@@ -4,3 +4,4 @@ uwsgi_install_method: "source" # pip is available
 uwsgi_download_url: "https://github.com/unbit/uwsgi/archive/{{ uwsgi_version }}.tar.gz"
 uwsgi_mode: "default" # could be emperor, or tyrant
 uwsgi_lib_dir: "/usr/local/lib/uwsgi"
+uwsgi_plugins: []
