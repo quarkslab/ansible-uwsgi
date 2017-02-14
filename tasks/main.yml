@@ -8,7 +8,7 @@
   ignore_errors: True
   register: cmdresult
   changed_when: "cmdresult.stdout.find(uwsgi_version) == -1"
-  always_run: yes
+  check_mode: no
 
 #- debug: msg="Found uwsgi version {{ cmdresult.stdout }}. Needed {{ uwsgi_version }}"
 

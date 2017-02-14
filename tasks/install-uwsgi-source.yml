@@ -4,7 +4,7 @@
 
 - name: Getting uwsgi...
   get_url: dest=/tmp/{{ uwsgi_version }}.tar.gz url={{ uwsgi_download_url }}
-  sudo: no
+  become: no
 
 - name: Unpacking uwsgi...
   unarchive: src={{ uwsgi_download_url }} dest=/tmp copy=no
